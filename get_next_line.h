@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:23:43 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/18 15:39:32 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:55:36 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ size_t	ft_strlcat(char *src, char *dst, size_t size);
 void	fill_str(char *src, char *dst);
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 4
 # endif
 #endif

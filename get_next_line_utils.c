@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:11:27 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/18 15:56:21 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:10:58 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 #include <stdio.h>
 #include "get_next_line.h"
 
-void	ft_putchar(char c)
-{
-	write (1, &c, 1);
-}
 
 size_t	ft_strlen(const char *s)
 {
@@ -50,44 +46,7 @@ char	*ft_calloc(size_t nmemb, size_t size)
 	}
 	return (ptr);
 }
-char	*str_cat(char *src1, char *add, size_t size)
-{
-	int		i;
-	int		j;
-	char	*new_str;
-	int		old_len;
 
-	i = 0;
-	j = 0;
-	old_len = ft_strlen(src1);
-	new_str = malloc(sizeof(char) * (old_len + size + 1));
-	if (!new_str)
-	{
-		free(src1);
-		return (0);
-	}
-	if (src1)
-	{
-		while (src1[i])
-		{
-			new_str[i] = src1[i];
-			i++;
-		}
-	}
-	if (add)
-	{
-		while (add[j])
-		{
-			new_str[i] = add[j];
-			j++;
-			i++;
-		}
-	}
-	new_str[i] = '\0';
-	free(add);
-	free(src1);
-	return (new_str);
-}
 
 char	*ft_strdup(const char *s)
 {
@@ -127,5 +86,4 @@ void	fill_str(char *src, char *dst)
 	while (dst[i])
 		i++;
 	dst[i] = '\0';
-	free(src);
 }

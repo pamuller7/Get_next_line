@@ -1,0 +1,188 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                Welcome to Francinette, a 42 tester framework!                ║
+╚═══════════════════════╦══════════════════════════════╦═══════════════════════╝
+                        ║         get_next_line        ║
+                        ╚══════════════════════════════╝
+⠋ Preparing framework⠙ Preparing framework✔ Preparing framework
+⠋ Executing: norminette⠙ Executing: norminette⠹ Executing: norminette⠸ Executing: norminette✖ Executing: norminette
+Setting locale to en_US
+get_next_line.c: Error!
+Error: MIXED_SPACE_TAB      (line:  19, col:   9):	Mixed spaces and tabs
+Error: SPACE_REPLACE_TAB    (line:  19, col:   9):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  21, col:  17):	Misaligned variable declaration
+Error: TOO_MANY_VARS_FUNC   (line:  22, col:   1):	Too many variables declarations in a function
+Error: EMPTY_LINE_FUNCTION  (line:  34, col:   1):	Empty line in function
+Error: SPACE_EMPTY_LINE     (line:  34, col:   1):	Space on empty line
+Error: TOO_MANY_LINES       (line:  74, col:   1):	Function has more than 25 lines
+get_next_line_utils.c: Error!
+Error: CONSECUTIVE_NEWLINES (line:  18, col:   1):	Consecutive newlines
+Error: CONSECUTIVE_NEWLINES (line:  50, col:   1):	Consecutive newlines
+Error: BRACE_SHOULD_EOL     (line:  89, col:   1):	Expected newline after brace
+get_next_line.h: Error!
+Error: NL_AFTER_PREPROC     (line:  19, col:   1):	Preprocessor statement must be followed by a newline
+
+ℹ Running tests: gnlTester (https://github.com/Tripouille/gnlTester)
+[34m[Mandatory]
+[37m[BUFFER_SIZE = 1]: [0m
+[37mInvalid fd: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/empty: [32m1.OK [32m2.OK [0m
+[37mfiles/nl: [32m1.OK [31m2.KO [0m
+[37mfiles/41_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/41_with_nl: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/42_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/42_with_nl: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/43_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/43_with_nl: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/multiple_nlx5: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [31m6.KO [0m
+[37mfiles/multiple_line_no_nl: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [0m
+[37mfiles/multiple_line_with_nl: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [31m6.KO [0m
+[37mfiles/alternate_line_nl_no_nl: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [32m10.OK [0m
+[37mfiles/alternate_line_nl_with_nl: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [31m10.KO [0m
+[37mfiles/big_line_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/big_line_with_nl: [32m1.OK [31m2.KO [0m
+[37mstdin: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [31m10.KO [0m
+
+[37m[BUFFER_SIZE = 42]: [0m
+[37mInvalid fd: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/empty: [32m1.OK [32m2.OK [0m
+[37mfiles/nl: [32m1.OK [31m2.KO [0m
+[37mfiles/41_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/41_with_nl: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/42_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/42_with_nl: [32m1.OK [32m2.OK [31m3.KO [0m
+[37mfiles/43_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/43_with_nl: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/multiple_nlx5: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [31m6.KO [0m
+[37mfiles/multiple_line_no_nl: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK ==99575== Invalid read of size 1
+==99575==    at 0x4082F6: ft_strlen (get_next_line_utils.c:26)
+==99575==    by 0x40815B: get_next_line (get_next_line.c:36)
+==99575==    by 0x402DE6: gnl(int, char const*) (gnl.cpp:20)
+==99575==    by 0x406BBA: main (mandatory.cpp:92)
+==99575==  Address 0x4de9240 is 0 bytes inside a block of size 39 free'd
+==99575==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==99575==    by 0x4082B1: get_next_line (get_next_line.c:71)
+==99575==    by 0x402DE6: gnl(int, char const*) (gnl.cpp:20)
+==99575==    by 0x406BAE: main (mandatory.cpp:92)
+==99575==  Block was alloc'd at
+==99575==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==99575==    by 0x4083D3: ft_strdup (get_next_line_utils.c:61)
+==99575==    by 0x40821B: get_next_line (get_next_line.c:53)
+==99575==    by 0x402DE6: gnl(int, char const*) (gnl.cpp:20)
+==99575==    by 0x406B9C: main (mandatory.cpp:92)
+==99575== 
+==99575== Invalid read of size 1
+==99575==    at 0x408483: fill_str (get_next_line_utils.c:80)
+==99575==    by 0x4081E6: get_next_line (get_next_line.c:47)
+==99575==    by 0x402DE6: gnl(int, char const*) (gnl.cpp:20)
+==99575==    by 0x406BBA: main (mandatory.cpp:92)
+==99575==  Address 0x4de9240 is 0 bytes inside a block of size 39 free'd
+==99575==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==99575==    by 0x4082B1: get_next_line (get_next_line.c:71)
+==99575==    by 0x402DE6: gnl(int, char const*) (gnl.cpp:20)
+==99575==    by 0x406BAE: main (mandatory.cpp:92)
+==99575==  Block was alloc'd at
+==99575==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==99575==    by 0x4083D3: ft_strdup (get_next_line_utils.c:61)
+==99575==    by 0x40821B: get_next_line (get_next_line.c:53)
+==99575==    by 0x402DE6: gnl(int, char const*) (gnl.cpp:20)
+==99575==    by 0x406B9C: main (mandatory.cpp:92)
+==99575== 
+==99575== Invalid read of size 1
+==99575==    at 0x40846D: fill_str (get_next_line_utils.c:82)
+==99575==    by 0x4081E6: get_next_line (get_next_line.c:47)
+==99575==    by 0x402DE6: gnl(int, char const*) (gnl.cpp:20)
+==99575==    by 0x406BBA: main (mandatory.cpp:92)
+==99575==  Address 0x4de9240 is 0 bytes inside a block of size 39 free'd
+==99575==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==99575==    by 0x4082B1: get_next_line (get_next_line.c:71)
+==99575==    by 0x402DE6: gnl(int, char const*) (gnl.cpp:20)
+==99575==    by 0x406BAE: main (mandatory.cpp:92)
+==99575==  Block was alloc'd at
+==99575==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==99575==    by 0x4083D3: ft_strdup (get_next_line_utils.c:61)
+==99575==    by 0x40821B: get_next_line (get_next_line.c:53)
+==99575==    by 0x402DE6: gnl(int, char const*) (gnl.cpp:20)
+==99575==    by 0x406B9C: main (mandatory.cpp:92)
+==99575== 
+[31m6.KO ==99575== Invalid free() / delete / delete[] / realloc()
+==99575==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==99575==    by 0x402E36: gnl(int, char const*) (gnl.cpp:25)
+==99575==    by 0x406BBA: main (mandatory.cpp:92)
+==99575==  Address 0x4de9240 is 0 bytes inside a block of size 39 free'd
+==99575==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==99575==    by 0x4082B1: get_next_line (get_next_line.c:71)
+==99575==    by 0x402DE6: gnl(int, char const*) (gnl.cpp:20)
+==99575==    by 0x406BAE: main (mandatory.cpp:92)
+==99575==  Block was alloc'd at
+==99575==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==99575==    by 0x4083D3: ft_strdup (get_next_line_utils.c:61)
+==99575==    by 0x40821B: get_next_line (get_next_line.c:53)
+==99575==    by 0x402DE6: gnl(int, char const*) (gnl.cpp:20)
+==99575==    by 0x406B9C: main (mandatory.cpp:92)
+==99575== 
+[0m
+[37mfiles/multiple_line_with_nl: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [31m6.KO [0m
+[37mfiles/alternate_line_nl_no_nl: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [32m10.OK [0m
+[37mfiles/alternate_line_nl_with_nl: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [31m10.KO [0m
+[37mfiles/big_line_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/big_line_with_nl: [32m1.OK [31m2.KO [0m
+[37mstdin: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [31m10.KO [0m
+
+[37m[BUFFER_SIZE = 10000000]: [0m
+[37mInvalid fd: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/empty: [32m1.OK [32m2.OK [0m
+[37mfiles/nl: [32m1.OK [31m2.KO [0m
+[37mfiles/41_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/41_with_nl: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/42_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/42_with_nl: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/43_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/43_with_nl: [32m1.OK [32m2.OK [32m3.OK [0m
+[37mfiles/multiple_nlx5: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [31m6.KO [0m
+[37mfiles/multiple_line_no_nl: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [0m
+[37mfiles/multiple_line_with_nl: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [31m6.KO [0m
+[37mfiles/alternate_line_nl_no_nl: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [32m10.OK [0m
+[37mfiles/alternate_line_nl_with_nl: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [31m10.KO [0m
+[37mfiles/big_line_no_nl: [32m1.OK [32m2.OK [0m
+[37mfiles/big_line_with_nl: [32m1.OK [31m2.KO [0m
+[37mstdin: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [31m10.KO [0m
+
+
+To see the tests open: /home/pamuller/francinette/tests/get_next_line/gnlTester/tests/mandatory.cpp
+
+ℹ Running tests: fsoares (my own tests)
+[1;35mBUFFER_SIZE[0m: 1
+[0;34mInvalid fd          [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4_LEAKS.OK [0m
+[0;34mempty.txt           [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m
+[0;34m1char.txt           [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m
+[0;34mone_line_no_nl.txt  [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m
+[0;34monly_nl.txt         [0m: [0;32m1.OK [0m[0;31m2.KO [0m[0;31m3_LEAKS.KO [0m
+Segmentation fault (core dumped)
+make: [Makefile:23: mandatory] Error 139 (ignored)
+[1;35mBUFFER_SIZE[0m: 10
+[0;34mInvalid fd          [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4_LEAKS.OK [0m
+[0;34mempty.txt           [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m
+[0;34m1char.txt           [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m
+[0;34mone_line_no_nl.txt  [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m
+[0;34monly_nl.txt         [0m: [0;32m1.OK [0m[0;31m2.KO [0m[0;31m3_LEAKS.KO [0m
+Segmentation fault (core dumped)
+make: [Makefile:24: mandatory] Error 139 (ignored)
+[1;35mBUFFER_SIZE[0m: 1000000
+[0;34mInvalid fd          [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3.OK [0m[0;32m4_LEAKS.OK [0m
+[0;34mempty.txt           [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m
+[0;34m1char.txt           [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m
+[0;34mone_line_no_nl.txt  [0m: [0;32m1.OK [0m[0;32m2.OK [0m[0;32m3_LEAKS.OK [0m
+[0;34monly_nl.txt         [0m: [0;32m1.OK [0m[0;31m2.KO [0m[0;31m3_LEAKS.KO [0m
+Segmentation fault (core dumped)
+make: [Makefile:25: mandatory] Error 139 (ignored)
+⠋ Processing output⠙ Processing outputErrors found:
+
+To see the tests open: /home/pamuller/francinette/tests/get_next_line/fsoares/tester.c
+
+
+Summary: no bonus
+
+Norminette Errors: get_next_line.c, get_next_line_utils.c, get_next_line.h
+
+Failed tests: gnlTester, fsoares
+
