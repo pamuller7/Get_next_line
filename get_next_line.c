@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:07:42 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/20 15:47:53 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/11/20 18:54:19 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int	read_file(char **stock, char **line, int fd, int *sz)
 {
 	int	len;
-	
+
+	free(*stock);
 	(*stock) = (*line);
 	len = ft_strlen((*stock));
 	(*line) = ft_calloc(sizeof(char) , BUFFER_SIZE + len + 1);
@@ -31,6 +32,22 @@ int	read_file(char **stock, char **line, int fd, int *sz)
 		return (0);
 	}
 	fill_str((*stock), (*line));
+	return (1);
+}
+
+int	check_sz(char **stock, char **line, char **p, int *sz)
+{
+	if (*sz == 0)
+	{
+		if ((*stock) && (*stock)[0] == '\0')
+		{
+			free(*stock);
+			*stock = NULL;
+		}
+		free(*line);
+		*p = NULL;
+		return (0);
+	}
 	return (1);
 }
 
@@ -54,12 +71,8 @@ int	check_readed_line(char **line, char **stock, int *sz, char **p)
 			return (1);
 		}
 	}
-	if (*sz == 0)
-	{
-		free((*line));
-		(*p) = NULL;
+	if (!check_sz(stock, line, p, sz))
 		return (2);
-	}
 	return (-1);
 }
 
@@ -84,10 +97,9 @@ char	*get_next_line(int fd)
 		if (check == 2)
 			return (stock);
 		if (check == 0)
-			return (NULL);
+			return (0);
 		else if (check == 1)
 			return (line);
-		free(stock);
 	}
 	return (line);
 }
