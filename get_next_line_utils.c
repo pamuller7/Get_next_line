@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:11:27 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/19 15:10:58 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/11/20 15:18:54 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,17 @@ char	*ft_strdup(const char *s)
 	int		len;
 
 	i = 0;
-	len = 0;
-	while (s[len])
-		len++;
-	dup = malloc (sizeof(char) * (len + 1));
+	len = ft_strlen(s);
+	dup = malloc(sizeof(char) * (len + 1));
 	if (!dup)
 		return (0);
-	while (s[i])
+	if (s)
 	{
-		dup[i] = s[i];
-		i++;
+		while (s[i])
+		{
+			dup[i] = s[i];
+			i++;
+		}
 	}
 	dup[i] = '\0';
 	return (dup);
@@ -83,7 +84,4 @@ void	fill_str(char *src, char *dst)
 			i++;
 		}
 	}
-	while (dst[i])
-		i++;
-	dst[i] = '\0';
 }
