@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:07:42 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/20 18:54:19 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/11/21 15:04:49 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	read_file(char **stock, char **line, int fd, int *sz)
 	(*sz) = read(fd, (*line) + len, BUFFER_SIZE);
 	if ((*sz) < 0)
 	{
-		free((*line));
+		free(*line);
+		free(*stock);
 		return (0);
 	}
 	fill_str((*stock), (*line));
@@ -78,13 +79,13 @@ int	check_readed_line(char **line, char **stock, int *sz, char **p)
 
 char	*get_next_line(int fd)
 {
-	int		sz;
-	int		check;
-	char 	*line;
-	char	*stock;
-	static char	*p = NULL;
+	int			sz;
+	int			check;
+	char 		*line;
+	char		*stock;
+	static char	*p;
 
-	if (fd < 0 || BUFFER_SIZE == 0)
+	if (fd < 0 && BUFFER_SIZE != 0)
 		return (0);
 	sz = BUFFER_SIZE;
 	line = p;
@@ -92,7 +93,7 @@ char	*get_next_line(int fd)
 	while (sz != 0)
 	{
 		if (!read_file(&stock, &line, fd, &sz))
-			return (NULL);
+			return (p = NULL);
 		check = check_readed_line(&line, &stock, &sz, &p);
 		if (check == 2)
 			return (stock);
@@ -101,6 +102,5 @@ char	*get_next_line(int fd)
 		else if (check == 1)
 			return (line);
 	}
-	return (line);
+	return (0);
 }
-

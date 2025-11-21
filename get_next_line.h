@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:23:43 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/20 16:38:08 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/11/21 14:04:55 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ char	*get_next_line(int fd);
 char	*ft_strdup(const char *s);
 size_t	ft_strlcat(char *src, char *dst, size_t size);
 void	fill_str(char *src, char *dst);
+int	ft_putchar_fd(char c, int fd);
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 1000000
 # endif
 #endif
