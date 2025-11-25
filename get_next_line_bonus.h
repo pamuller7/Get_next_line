@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:23:43 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/24 14:56:34 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:39:53 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+# define FD_MAX 1023
+# define NO_ALLOC -1
+# define ENDLINE_FOUND 1
+# define END_OF_FILE 2
 
 size_t	ft_strlen(const char *s);
 char	*ft_calloc(size_t nmemb, size_t size);

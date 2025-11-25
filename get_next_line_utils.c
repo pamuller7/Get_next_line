@@ -6,13 +6,10 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:11:27 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/24 14:54:24 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:30:55 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)

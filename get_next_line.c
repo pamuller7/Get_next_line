@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:07:42 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/24 14:54:09 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:42:39 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,16 @@ static int	check_readed_line(char **line, char **stock, int *sz, char **p)
 			if (!(*p))
 			{
 				free((*line));
-				return (0);
+				return (NO_ALLOC);
 			}
 			(*line)[i + 1] = '\0';
 			free((*stock));
-			return (1);
+			return (ENDLINE_FOUND);
 		}
 	}
 	if (!check_sz(stock, line, p, sz))
-		return (2);
-	return (-1);
+		return (END_OF_FILE);
+	return (0);
 }
 
 char	*get_next_line(int fd)
@@ -85,7 +85,7 @@ char	*get_next_line(int fd)
 	char		*stock;
 	static char	*p;
 
-	if (fd < 0 && BUFFER_SIZE != 0)
+	if (fd < 0 || BUFFER_SIZE == 0)
 		return (0);
 	sz = BUFFER_SIZE;
 	line = p;
@@ -95,11 +95,11 @@ char	*get_next_line(int fd)
 		if (!read_file(&stock, &line, fd, &sz))
 			return (p = NULL);
 		check = check_readed_line(&line, &stock, &sz, &p);
-		if (check == 2)
+		if (check == END_OF_FILE)
 			return (stock);
-		if (check == 0)
+		if (check == NO_ALLOC)
 			return (0);
-		else if (check == 1)
+		else if (check == ENDLINE_FOUND)
 			return (line);
 	}
 	return (0);
