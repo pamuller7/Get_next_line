@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:07:42 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/24 14:54:09 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/11/24 14:55:56 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static int	read_file(char **stock, char **line, int fd, int *sz)
 {
@@ -83,18 +83,18 @@ char	*get_next_line(int fd)
 	int			check;
 	char		*line;
 	char		*stock;
-	static char	*p;
+	static char	*p[1024];
 
 	if (fd < 0 && BUFFER_SIZE != 0)
 		return (0);
 	sz = BUFFER_SIZE;
-	line = p;
+	line = p[fd];
 	stock = NULL;
 	while (sz != 0)
 	{
 		if (!read_file(&stock, &line, fd, &sz))
-			return (p = NULL);
-		check = check_readed_line(&line, &stock, &sz, &p);
+			return (p[fd] = NULL);
+		check = check_readed_line(&line, &stock, &sz, &(p[fd]));
 		if (check == 2)
 			return (stock);
 		if (check == 0)
