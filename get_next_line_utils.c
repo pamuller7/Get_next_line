@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:11:27 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/25 14:30:55 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/12/03 15:04:02 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,29 @@ void	fill_str(char *src, char *dst)
 			i++;
 		}
 	}
+}
+
+char	*realloc_line(char *str)
+{
+	int		len;
+	char	*ret;
+	int		i;
+
+	i = 0;
+	len = ft_strlen(str);
+	if (str)
+	{
+		ret = malloc(sizeof(char) * (len + 1));
+		if (!ret)
+			return (NULL);
+		while (str[i])
+		{
+			ret[i] = str[i];
+			i++;
+		}
+		ret[i] = '\0';
+		free(str);
+		return (ret);
+	}
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:07:42 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/25 14:39:49 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/12/03 15:06:56 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,11 @@ char	*get_next_line(int fd)
 			return (p[fd] = NULL);
 		check = check_readed_line(&line, &stock, &sz, &(p[fd]));
 		if (check == END_OF_FILE)
-			return (stock);
+			return (realloc_line(stock));
 		if (check == NO_ALLOC)
 			return (0);
 		else if (check == ENDLINE_FOUND)
-			return (line);
+			return (realloc_line(line));
 	}
 	return (0);
 }

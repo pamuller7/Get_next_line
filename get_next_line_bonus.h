@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:23:43 by pamuller          #+#    #+#             */
-/*   Updated: 2025/11/25 14:39:53 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/12/03 15:06:18 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ char	*ft_calloc(size_t nmemb, size_t size);
 char	*get_next_line(int fd);
 char	*ft_strdup(const char *s);
 void	fill_str(char *src, char *dst);
+char	*realloc_line(char *str);
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
