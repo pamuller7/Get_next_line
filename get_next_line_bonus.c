@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:07:42 by pamuller          #+#    #+#             */
-/*   Updated: 2025/12/08 11:35:19 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/12/11 11:54:34 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,14 @@ char	*get_next_line(int fd)
 	char		*stock;
 	static char	p[1024][BUFFER_SIZE + 1];
 
-	if ((fd < 0 || fd > FD_MAX) || BUFFER_SIZE == 0)
+	if (fd < 0 || fd > FD_MAX || BUFFER_SIZE <= 0)
 		return (0);
 	sz = BUFFER_SIZE;
 	line = ft_strdup(p[fd]);
+	if (!line)
+		return (0);
 	stock = NULL;
-	while (sz != 0 && line != NULL)
+	while (sz != 0)
 	{
 		if (!read_file(&stock, &line, fd, &sz))
 			return (reinit_p(p[fd]));
@@ -106,9 +108,7 @@ char	*get_next_line(int fd)
 		if (check == END_OF_FILE)
 			return (stock);
 		free(stock);
-		if (check == NO_ALLOC)
-			return (0);
-		else if (check == ENDLINE_FOUND)
+		if (check == ENDLINE_FOUND)
 			return (line);
 	}
 	return (0);
