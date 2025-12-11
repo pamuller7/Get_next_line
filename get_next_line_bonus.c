@@ -6,7 +6,7 @@
 /*   By: pamuller <pamuller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:07:42 by pamuller          #+#    #+#             */
-/*   Updated: 2025/12/11 11:54:34 by pamuller         ###   ########.fr       */
+/*   Updated: 2025/12/11 12:38:21 by pamuller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,19 @@ static int	check_sz(char **stock, char **line, int *sz)
 	return (1);
 }
 
+static char	*reinit_p(char *p)
+{
+	int	i;
+
+	i = 0;
+	while (i < BUFFER_SIZE)
+	{
+		p[i] = '\0';
+		i++;
+	}
+	return (NULL);
+}
+
 static int	check_readed_line(char **line, char **stock, int *sz, char *p)
 {
 	int	i;
@@ -66,23 +79,10 @@ static int	check_readed_line(char **line, char **stock, int *sz, char *p)
 			return (ENDLINE_FOUND);
 		}
 	}
-	p[0] = '\0';
+	reinit_p(p);
 	if (!check_sz(stock, line, sz))
 		return (END_OF_FILE);
 	return (0);
-}
-
-static char	*reinit_p(char *p)
-{
-	int	i;
-
-	i = 0;
-	while (i < BUFFER_SIZE)
-	{
-		p[i] = '\0';
-		i++;
-	}
-	return (NULL);
 }
 
 char	*get_next_line(int fd)
